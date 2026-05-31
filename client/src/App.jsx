@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 
 const App = () => {
   const isOwnerPath = useLocation().pathname.includes("owner");
-  console.log();
+  console.log("isOwnerPath", isOwnerPath);
   return (
     <div>
       {!isOwnerPath && <Navbar />}
