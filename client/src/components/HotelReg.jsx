@@ -54,7 +54,6 @@ const HotelReg = () => {
               required
             />
           </div>
-          {/* Select City Drop Down */}
           <div className="w-full mt-4 max-w-60 mr-auto">
             <label htmlFor="city" className="font-medium text-gray-500">
               City

@@ -32,13 +32,17 @@ const ExclusiveOffers = () => {
               {item.priceOff}% OFF
             </p>
             <div>
-              <p className='text-2xl font-medium font-playfair'>{item.title}</p>
+              <p className="text-2xl font-medium font-playfair">{item.title}</p>
               <p>{item.description}</p>
-              <p className='text-xs text-white/70 mt-3'>{item.expiryDate}</p>
+              <p className="text-xs text-white/70 mt-3">{item.expiryDate}</p>
             </div>
-            <button className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5'>
-                View Offers
-                <img className='invert group-hover:translate-x-1 transition-all' src={assets.arrowIcon} alt="arrow-icon"/>
+            <button className="flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5">
+              View Offers
+              <img
+                className="invert group-hover:translate-x-1 transition-all"
+                src={assets.arrowIcon}
+                alt="arrow-icon"
+              />
             </button>
           </div>
         ))}
