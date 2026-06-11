@@ -78,3 +78,19 @@ export const createBooking = async (req, res) => {
 
 //API to get all bookings for a user
 
+export const getUserBookings = async (req, res) => {
+  try {
+    const user = req.user._id;
+
+    const bookings = await Booking.find({ user })
+      .populate("room hotel")
+      .sort({ createdAt: -1 });
+
+    res.json({ success: true, bookings });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: "Failed to fetch bookings",
+    });
+  }
+};
