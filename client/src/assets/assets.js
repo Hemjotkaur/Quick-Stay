@@ -76,6 +76,7 @@ export const assets = {
 
 export const cities = [
     "Dubai",
+    "Mumbai",
     "Singapore",
     "New York",
     "London",
