@@ -11,7 +11,13 @@ const HotelCard = ({ room, index }) => {
       className="relative max-w-70 w-full rounded-xl overflow-hidden
          bg-white text-gray-500/90 shadow-[0px_4px_4px_rgba(0,0,0,0.05)]"
     >
-      <img src={room.images[0]} alt={room.name}  />
+     <div className="h-60 overflow-hidden">
+  <img
+    src={room.images[0]}
+    alt={room.name}
+    className="w-full h-full object-cover"
+  />
+</div>
       {index % 2 === 0 && (
         <p className="px-3 py-1 absolute top-3 left-3 text-xs bg-white text-gray-800 font-medium rounded-full ">
           Best Seller

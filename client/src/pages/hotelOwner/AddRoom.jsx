@@ -64,7 +64,7 @@ const AddRoom = () => {
           Authorization: `Bearer ${await getToken()}`,
         },
       });
-   console.log("data from api",data);
+      console.log("data from api", data);
       if (data.success) {
         toast.success(data.message);
         setInputs({
@@ -103,7 +103,7 @@ const AddRoom = () => {
         {Object.keys(images).map((key) => (
           <label htmlFor={`roomImage${key}`} key={key}>
             <img
-              className="max-h-13 cursor-pointer opacity-80"
+              className=" cursor-pointer opacity-80 w-24 h-16 object-cover rounded"
               src={
                 images[key]
                   ? URL.createObjectURL(images[key])
