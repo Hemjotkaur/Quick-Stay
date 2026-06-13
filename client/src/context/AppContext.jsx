@@ -37,11 +37,11 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  useEffect(()=>{
-    if(user){
-      fetchUser()
+  useEffect(() => {
+    if (user) {
+      fetchUser();
     }
-  },[user])
+  }, [user]);
 
   const value = {
     currency,
@@ -54,7 +54,7 @@ export const AppProvider = ({ children }) => {
     showHotelReg,
     setShowHotelReg,
     searchedCities,
-    setSearchedCities
+    setSearchedCities,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
