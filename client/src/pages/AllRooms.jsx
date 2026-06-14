@@ -12,6 +12,7 @@ const CheckBox = ({ label, selected = false, onChange = () => {} }) => {
         type="checkbox"
         checked={selected}
         onChange={(e) => onChange(e.target.checked, label)}
+        onClick={()=>console.log("checked")}
       />
       <span className="font-light select-none">{label}</span>
     </label>
@@ -56,7 +57,7 @@ const AllRooms = () => {
   const sortOptions = [
     "Price Low to High",
     "Price High to Low",
-    "Newest First",
+    "Newest Option",
   ];
 
   //Handle chnages for filters and sorting
@@ -117,7 +118,7 @@ const AllRooms = () => {
     if (!destination) return true;
     return room.hotel.city.toLowerCase().includes(destination.toLowerCase());
   };
-  //Filter and sort rooms based on the selected filters and sort option
+  //Filter and sort rooms based on the selected filters and sort 
   const filteredRooms = useMemo(() => {
     return rooms
       .filter(
