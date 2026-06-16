@@ -3,7 +3,8 @@ import { assets, cities } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
 
 const Hero = () => {
-  const { navigate, getToken, axios, setSearchedCities } = useAppContext();
+  const { navigate, getToken, axios, setSearchedCities, searchedCities } =
+    useAppContext();
   const [destination, setDestination] = useState("");
 
   const onSearch = async (e) => {
@@ -14,7 +15,7 @@ const Hero = () => {
     await axios.post(
       "/api/user/store-recent-search",
       { recentSearchedCity: destination },
-      { headers: { Authorization: `Bearer${await getToken()}` } },
+      { headers: { Authorization: `Bearer ${await getToken()}` } },
     );
 
     //add destination to searchCities max 3 recent searched cities
@@ -26,6 +27,8 @@ const Hero = () => {
       return updatedSearchedCities;
     });
   };
+
+  console.log("Sss", searchedCities);
 
   return (
     <div className="flex flex-col items-start justify-center px-6 md:px-16 lg:px-24 xl:px-32 text-white bg-[url('/src/assets/heroImage.png')]  bg-no-repeat bg-cover bg-center h-screen ">
