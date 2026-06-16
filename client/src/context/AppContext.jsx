@@ -39,9 +39,9 @@ export const AppProvider = ({ children }) => {
       });
       if (data.success) {
         setIsOwner(data.role === "hotelOwner");
-        setSearchedCities(data.recentSearchedCities || []);
+        setSearchedCities(data.recentSearchedCities||[]);
       } else {
-        //retry fetcging user details after 5 sec
+        //retry fetching user details after 5 sec
         setTimeout(() => {
           fetchUser();
         }, 5000);
