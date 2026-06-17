@@ -1,6 +1,6 @@
 // get /api/user/
 
-export const getUserData = async () => {
+export const getUserData = async (req,res) => {
   try {
     const role = req.user.role;
     const recentSearchedCities = req.user.recentSearchedCities;
@@ -15,6 +15,7 @@ export const getUserData = async () => {
 export const storeRecentSearchedCities = async (req, res) => {
   try {
     const { recentSearchedCity } = req.body;
+    console.log("city",recentSearchedCity)
     const user = await req.user;
 
     if (user.recentSearchedCities.length < 3) {
