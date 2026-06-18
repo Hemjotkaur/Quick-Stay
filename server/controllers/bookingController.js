@@ -1,6 +1,7 @@
 import Room from "../models/Room.js";
 import Booking from "../models/Booking.js";
 import transporter from "../configs/nodemailer.js";
+import Hotel from "../models/Hotel.js";
 
 //function to Check availability of Room
 const checkAvailability = async ({ checkInDate, checkOutDate, room }) => {
@@ -140,8 +141,10 @@ export const getUserBookings = async (req, res) => {
 export const getHotelBookings = async (req, res) => {
   try {
     const hotel = await Hotel.findOne({
-      owner: req.auth.userId,
+      owner: req.user._id,
     });
+
+    console.log("hotel",hotel);
 
     if (!hotel) {
       return res.json({
@@ -152,9 +155,7 @@ export const getHotelBookings = async (req, res) => {
 
     const bookings = await Booking.find({
       hotel: hotel._id,
-    })
-      .populate("room hotel user")
-      .sort({ createdAt: -1 });
+    }).populate("room hotel user").sort({ createdAt: -1 });
 
     // Total Bookings
     const totalBookings = bookings.length;
